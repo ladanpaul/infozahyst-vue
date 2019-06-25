@@ -1,10 +1,21 @@
+@import "var";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: MuseoSansCyrl, sans-serif;
 }
 
 body {
-  width: 100vw;
   height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section {
+  padding-top: 100px;
 }

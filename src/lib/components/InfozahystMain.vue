@@ -1,7 +1,7 @@
 <template>
-  <div class="infozahyst">
+  <section class="section infozahyst">
     InfozahystMain component :)))))))))))
-  </div>
+  </section>
 </template>
 
 <script>
@@ -15,9 +15,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/styles/var.scss";
+
 .infozahyst {
   border: 2px solid blue;
-  height: 500px;
-  width: 500px;
+  height: 1500px;
+  width: 100%;
+  background: $black;
+  color: #fff;
 }
 </style>
