@@ -1,6 +1,6 @@
 <template>
   <section class="section infozahyst">
-    InfozahystMain component :)))))))))))
+    {{ $t('testMessage') }}
   </section>
 </template>
 

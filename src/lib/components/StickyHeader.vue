@@ -14,8 +14,20 @@
         to="/"
         class="nav-list__item"
       >
-        Головна
+        {{ $t('main') }}
       </router-link>
+      <button
+        class="nav-list__item"
+        @click="setLocale('en')"
+      >
+        EN
+      </button>
+      <button
+        class="nav-list__item"
+        @click="setLocale('ua')"
+      >
+        UA
+      </button>
     </nav>
   </header>
 </template>
@@ -25,6 +37,7 @@ export default {
   name: "StickyHeader",
 
   mounted() {
+    console.log(this.$i18n.locale);
     const header = this.$refs.header;
 
     document.addEventListener("scroll", function() {
@@ -34,6 +47,13 @@ export default {
         ? header.classList.add("fill")
         : header.classList.remove("fill");
     });
+  },
+
+  methods: {
+    setLocale(locale) {
+      console.log(locale);
+      this.$i18n.locale = locale;
+    }
   }
 };
 </script>
