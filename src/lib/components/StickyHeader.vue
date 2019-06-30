@@ -14,20 +14,17 @@
         to="/"
         class="nav-list__item"
       >
-        {{ $t('main') }}
+        {{ $t('navigate.home') }}
       </router-link>
-      <button
-        class="nav-list__item"
-        @click="setLocale('en')"
-      >
-        EN
-      </button>
-      <button
-        class="nav-list__item"
-        @click="setLocale('ua')"
-      >
-        UA
-      </button>
+      <select v-model="$i18n.locale">
+        <option
+          v-for="(lang, i) in langs"
+          :key="`Lang${i}`"
+          :value="lang"
+        >
+          {{ lang }}
+        </option>
+      </select>
     </nav>
   </header>
 </template>
@@ -36,8 +33,13 @@
 export default {
   name: "StickyHeader",
 
+  data() {
+    return {
+      langs: ["ua", "en"]
+    };
+  },
+
   mounted() {
-    console.log(this.$i18n.locale);
     const header = this.$refs.header;
 
     document.addEventListener("scroll", function() {
@@ -47,13 +49,6 @@ export default {
         ? header.classList.add("fill")
         : header.classList.remove("fill");
     });
-  },
-
-  methods: {
-    setLocale(locale) {
-      console.log(locale);
-      this.$i18n.locale = locale;
-    }
   }
 };
 </script>
@@ -97,6 +92,13 @@ export default {
     padding: 0 15px;
     border-top: 5px solid transparent;
   }
+}
+
+button {
+  border: none;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
 }
 </style>
 

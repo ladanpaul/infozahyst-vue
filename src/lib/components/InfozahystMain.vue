@@ -1,6 +1,5 @@
 <template>
-  <section class="section infozahyst">
-    {{ $t('testMessage') }}
+  <section class="section infozahyst-main">
   </section>
 </template>
 
@@ -17,7 +16,7 @@ export default {
 <style scoped lang="scss">
 @import "@/styles/var.scss";
 
-.infozahyst {
+.infozahyst-main {
   border: 2px solid blue;
   height: 1500px;
   width: 100%;
