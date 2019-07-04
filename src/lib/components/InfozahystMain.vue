@@ -1,14 +1,17 @@
 <template>
   <section class="section infozahyst-main">
+    <SliderSwiper />
   </section>
 </template>
 
 <script>
+import SliderSwiper from "./SliderSwiper";
+
 export default {
   name: "InfozahystMain",
 
-  mounted() {
-    console.log("here?");
+  components: {
+    SliderSwiper
   }
 };
 </script>
@@ -17,7 +20,6 @@ export default {
 @import "@/styles/var.scss";
 
 .infozahyst-main {
-  border: 2px solid blue;
   height: 1500px;
   width: 100%;
   background: $black;
