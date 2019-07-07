@@ -4,27 +4,19 @@
     ref="mainSwiper"
   >
     <swiperSlide>
-      <div class="about-good-wrapper">
-        <div class="about-good">
-          <h3 class="title">
-            Бла Бла Бла
-          </h3>
-          <span class="description">
-            many text about bla bla bla
-            hahaha huhuhu
-          </span>
-          <dir class="buttons-wrapper">
-            <button class="get-price">
-              Запит ціни
-            </button>
-            <button class="get-details">
-              Деталі
-            </button>
-          </dir>
+      <div class="content-wrapper">
+        <div class="content">
+          <slot name="content">
+            content slot
+          </slot>
         </div>
       </div>
       <div class="image-wrapper">
-        <img src="../../assets/plastun-sdr.png">
+        <div class="image">
+          <slot name="image">
+            <img src="../../assets/plastun-sdr.png">
+          </slot>
+        </div>
       </div>
     </swiperSlide>
     <div
@@ -86,44 +78,38 @@ export default {
 /deep/ .swiper-wrapper {
   height: 60vh;
 
+  .content-wrapper {
+    display: flex;
+    border: 2px solid orange;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: auto;
+      max-width: 340px;
+      height: 220px;
+    }
+  }
+
   .image-wrapper {
     display: flex;
-    justify-content: center;
-    width: 400px;
-  }
+    border: 2px solid orange;
 
-  img {
-    width: auto;
-    height: 100%;
-  }
-
-  .about-good-wrapper {
-    display: flex;
-  }
-
-  .about-good {
-    width: 70%;
-    height: 40%;
-    padding: 10px 30px;
-    border: 2px solid pink;
-    margin: auto;
-    text-align: center;
-  }
-
-  .description {
-    display: inline-block;
-    margin-top: 34px;
-  }
-
-  .buttons-wrapper {
-    margin-top: 40px;
+    img {
+      margin: auto;
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .swiper-slide {
     display: flex;
     justify-content: space-between;
 
-    * {
+    .content-wrapper,
+    .image-wrapper {
       flex-basis: 48%;
     }
   }

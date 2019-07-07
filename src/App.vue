@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <StickyHeader />
+    <Header />
     <section class="content">
       <router-view></router-view>
     </section>
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import { StickyHeader, Footer } from "./lib";
+import { Header, Footer } from "./lib";
 
 export default {
   name: "app",
 
   components: {
-    StickyHeader,
+    Header,
     Footer
   }
 };
