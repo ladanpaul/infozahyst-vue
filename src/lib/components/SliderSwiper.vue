@@ -5,19 +5,12 @@
   >
     <swiperSlide>
       <div class="content-wrapper">
-        <div class="content">
-          <slot name="content">
-            content slot
-          </slot>
-        </div>
+        <slot name="content" />
       </div>
       <div class="image-wrapper">
-        <div class="image">
-          <slot name="image">
-            <img src="../../assets/plastun-sdr.png">
-          </slot>
-        </div>
+        <slot name="image" />
       </div>
+      <slot />
     </swiperSlide>
     <div
       class="swiper-button-prev"
@@ -82,7 +75,7 @@ export default {
     display: flex;
     border: 2px solid orange;
 
-    .content {
+    & > div {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -98,9 +91,9 @@ export default {
 
     img {
       margin: auto;
-      width: auto;
+      width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 

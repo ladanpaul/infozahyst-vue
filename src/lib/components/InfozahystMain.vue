@@ -2,23 +2,36 @@
   <section class="section infozahyst-main">
     <SliderSwiper>
       <template #content>
-        <h3 class="title">
-          Комплекс радіоелектронної боротьби з БПЛА
-        </h3>
-        <span class="description">
-          Незамінна річ для забезпечення автономної роботи на сучасному полі бою, або в тривалому поході за будь-яких погодних умовах.
-        </span>
-        <dir class="buttons-wrapper">
-          <button
-            class="get-price"
-            @click="showModal = true"
-          >
-            Запит ціни
-          </button>
-          <button class="get-details">
-            Деталі
-          </button>
-        </dir>
+        <div
+          v-for="slide in MainSliderContent"
+          :key="slide.title"
+        >
+          <h3 class="title">
+            {{ slide.title }}
+          </h3>
+          <span class="description">
+            {{ slide.description }}
+          </span>
+          <dir class="buttons-wrapper">
+            <button
+              class="get-price"
+              @click="showModal = true"
+            >
+              Запит ціни
+            </button>
+            <button class="get-details">
+              Деталі
+            </button>
+          </dir>
+        </div>
+      </template>
+      <template #image>
+        <div
+          v-for="slide in MainSliderContent"
+          :key="slide.title"
+        >
+          <img :src="getImgUrl(slide.imageUrl)">
+        </div>
       </template>
     </SliderSwiper>
 
@@ -42,6 +55,7 @@
 <script>
 import SliderSwiper from "./SliderSwiper";
 import Modal from "./Modal";
+import { MainSliderContent } from "@/lib/content";
 
 export default {
   name: "InfozahystMain",
@@ -53,8 +67,19 @@ export default {
 
   data() {
     return {
-      showModal: false
+      showModal: false,
+      MainSliderContent: null
     };
+  },
+
+  methods: {
+    getImgUrl(pic) {
+      return require("@/assets/" + pic);
+    }
+  },
+
+  mounted() {
+    this.MainSliderContent = MainSliderContent;
   }
 };
 </script>
