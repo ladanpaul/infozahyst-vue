@@ -4,7 +4,11 @@ navigate:
   services: Послуги
   vacancies: Вакансії
   aboutUs: Про нас
-  languages: EN 
+  languages: EN
+
+global:
+  price: Запит ціни
+  details: Деталі
 
 mainSlider:
   mobileBattery:

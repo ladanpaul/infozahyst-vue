@@ -3,15 +3,14 @@
     :options="mainSwiperOptions"
     ref="mainSwiper"
   >
-    <swiperSlide>
-      <div class="content-wrapper">
-        <slot name="content" />
-      </div>
-      <div class="image-wrapper">
-        <slot name="image" />
-      </div>
-      <slot />
-    </swiperSlide>
+    <swiper-slide
+      v-for="slide in slides"
+      :key="slide.title"
+    >
+      <MainSlide :slide="slide">
+        <slot v-bind:slide="slide" />
+      </MainSlide>
+    </swiper-slide>
     <div
       class="swiper-button-prev"
       slot="button-prev"
@@ -27,13 +26,19 @@
 
 <script>
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import MainSlide from "@/lib/components/MainSlide";
 
 export default {
   name: "carrousel",
 
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    MainSlide
+  },
+
+  props: {
+    slides: { type: Array, required: true }
   },
 
   data() {
@@ -42,7 +47,8 @@ export default {
         keyboard: { enabled: true },
         centeredSlides: true,
         spaceBetween: 10,
-        watchOverflow: true
+        watchOverflow: true,
+        loop: true
       }
     };
   },
@@ -70,41 +76,5 @@ export default {
 
 /deep/ .swiper-wrapper {
   height: 60vh;
-
-  .content-wrapper {
-    display: flex;
-    border: 2px solid orange;
-
-    & > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: auto;
-      max-width: 340px;
-      height: 220px;
-    }
-  }
-
-  .image-wrapper {
-    display: flex;
-    border: 2px solid orange;
-
-    img {
-      margin: auto;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: space-between;
-
-    .content-wrapper,
-    .image-wrapper {
-      flex-basis: 48%;
-    }
-  }
 }
 </style>
