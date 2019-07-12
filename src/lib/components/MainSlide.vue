@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/var.scss";
+@import "@/styles/theme/common/var.scss";
 
 .buttons-wrapper {
   display: flex;

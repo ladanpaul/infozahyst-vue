@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/var.scss";
+@import "@/styles/theme/common/var.scss";
 
 .infozahyst-main {
   height: 1500px;

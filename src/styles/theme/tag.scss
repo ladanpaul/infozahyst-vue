@@ -1,0 +1,150 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(tag) {
+  background-color: $--tag-fill;
+  display: inline-flex;
+  padding: $--tag-padding;
+  min-height: 20px;
+  line-height: 30px;
+  font-size: $--tag-font-size;
+  color: $--tag-color;
+  border-radius: $--tag-border-radius;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 100%;
+  white-space: normal;
+  text-overflow: ellipsis;
+
+  .tag-title {
+    margin: 0 4px;
+  }
+
+  .el-icon-close {
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    color: $grey-600;
+
+    &::before {
+      display: block;
+    }
+
+    &:hover {
+      background-color: $--tag-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(info) {
+    background-color: $--tag-info-fill;
+    border-color: $--tag-info-border;
+    color: $--tag-info-color;
+
+    @include when(hit) {
+      border-color: $--tag-info-color;
+    }
+
+    .el-tag__close {
+      color: $--tag-info-color;
+    }
+
+    .el-tag__close:hover {
+      background-color: $--tag-info-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(success) {
+    background-color: $--tag-success-fill;
+    border-color: $--tag-success-border;
+    color: $--tag-success-color;
+
+    @include when(hit) {
+      border-color: $--tag-success-color;
+    }
+
+    .el-tag__close {
+      color: $--tag-success-color;
+    }
+
+    .el-tag__close:hover {
+      background-color: $--tag-success-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(warning) {
+    background-color: $--tag-warning-fill;
+    border-color: $--tag-warning-border;
+    color: $--tag-warning-color;
+
+    @include when(hit) {
+      border-color: $--tag-warning-color;
+    }
+
+    .el-tag__close {
+      color: $--tag-warning-color;
+    }
+
+    .el-tag__close:hover {
+      background-color: $--tag-warning-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(danger) {
+    background-color: $--tag-danger-fill;
+    border-color: $--tag-danger-border;
+    color: $--tag-danger-color;
+
+    @include when(hit) {
+      border-color: $--tag-danger-color;
+    }
+
+    .el-tag__close {
+      color: $--tag-danger-color;
+    }
+
+    .el-tag__close:hover {
+      background-color: $--tag-danger-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(medium) {
+    height: 28px;
+    line-height: 26px;
+
+    .el-icon-close {
+      transform: scale(.8);
+    }
+  }
+
+  @include m(small) {
+    height: 24px;
+    padding: 0 8px;
+    line-height: 22px;
+
+    .el-icon-close {
+      transform: scale(.8);
+    }
+  }
+
+  @include m(mini) {
+    min-height: 20px;
+    padding: 0 5px;
+    line-height: 19px;
+
+    .el-icon-close {
+      margin-left: -3px;
+      transform: scale(.7);
+    }
+  }
+}

@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/var.scss";
+@import "@/styles/theme/common/var.scss";
 
 /deep/ .swiper-wrapper {
   height: 60vh;
