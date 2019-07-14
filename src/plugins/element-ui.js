@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Input from 'element-ui/lib/input'
-import ButtonGroup from 'element-ui/lib/button-group'
 import Button from 'element-ui/lib/button'
-
+import Dialog from 'element-ui/lib/dialog'
 
 const components = [
   Input,
   Button,
-  ButtonGroup
+  Dialog
 ]
 
 components.forEach((Component) => {
@@ -16,6 +15,6 @@ components.forEach((Component) => {
   } else if (Component.name) {
     Vue.component(Component.name, Component)
   } else {
-    console.error('Unable to register component', Component) // eslint-disable-line no-console
+    console.error('Unable to register component', Component)
   }
 })

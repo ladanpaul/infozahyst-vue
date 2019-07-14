@@ -1,27 +1,27 @@
 <template>
-  <swiper
-    :options="mainSwiperOptions"
-    ref="mainSwiper"
-  >
-    <swiper-slide
-      v-for="slide in slides"
-      :key="slide.title"
+  <div>
+    <swiper
+      :options="mainSwiperOptions"
+      ref="mainSwiper"
     >
-      <MainSlide :slide="slide">
-        <slot v-bind:slide="slide" />
-      </MainSlide>
-    </swiper-slide>
-    <div
-      class="swiper-button-prev"
-      slot="button-prev"
-      @click="prevSlide"
-    />
-    <div
-      class="swiper-button-next"
-      slot="button-next"
-      @click="nextSlide"
-    />
-  </swiper>
+      <swiper-slide
+        v-for="slide in slides"
+        :key="slide.title"
+      >
+        <MainSlide :slide="slide" />
+      </swiper-slide>
+      <div
+        class="swiper-button-prev"
+        slot="button-prev"
+        @click="prevSlide"
+      />
+      <div
+        class="swiper-button-next"
+        slot="button-next"
+        @click="nextSlide"
+      />
+    </swiper>
+  </div>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
         <div class="buttons-wrapper">
           <button
             class="get-price"
-            @click="showModal = true"
+            @click="getPrice"
           >
             {{ $t('global.price') }}
           </button>
@@ -25,32 +25,40 @@
     <div class="image-wrapper">
       <img :src="getImgUrl(slide.imageUrl)">
     </div>
-    <Modal
-      v-if="showModal"
-      @close="showModal = false"
+
+    <el-dialog
+      title="Запит ціни"
+      :visible.sync="showDialog"
+      append-to-body
+      width="45%"
+      center
+      :before-close="beforeClose"
     >
-      <template #header>
-        <h3>{{slide.title}}</h3>
-      </template>
-      <template #body>
-        <!-- <h3>custom body</h3> -->
-      </template>
-      <template #footer>
-        <h3>custom footer</h3>
-      </template>
-    </Modal>
+      <div class="content-form">
+        <h3 class="title">{{ slide.title }}</h3>
+        <p class="description">Залиште, будь ласка, свої контактні дані, та ми відправимо детальну інформацію</p>
+        <el-input size="small" />
+        <el-input size="small" />
+        <el-input size="small" />
+        <el-input size="small" />
+      </div>
+
+      <span
+        slot="footer"
+        class="dialog-footer"
+      >
+        <el-button
+          type="primary"
+          @click="showDialog = false"
+        >Відправити</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import Modal from "./Modal";
-
 export default {
   name: "SlidePreview",
-
-  components: {
-    Modal
-  },
 
   props: {
     slide: { type: Object, required: true }
@@ -58,13 +66,21 @@ export default {
 
   data() {
     return {
-      showModal: false
+      showDialog: false
     };
   },
 
   methods: {
     getImgUrl(pic) {
       return require("@/assets/" + pic);
+    },
+
+    getPrice() {
+      this.showDialog = true;
+    },
+
+    beforeClose() {
+      this.showDialog = false;
     }
   }
 };
@@ -148,5 +164,10 @@ export default {
       object-fit: contain;
     }
   }
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
