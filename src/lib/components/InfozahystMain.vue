@@ -9,7 +9,7 @@
 
 <script>
 import SliderSwiper from "./SliderSwiper";
-import { MainSliderContent } from "@/lib/content";
+import content from '@/lib/content/MainSlider.yml'
 
 export default {
   name: "InfozahystMain",
@@ -25,7 +25,7 @@ export default {
   },
 
   mounted() {
-    this.MainSliderContent = MainSliderContent;
+    this.MainSliderContent = content.MainSliderContent;
   }
 };
 </script>
